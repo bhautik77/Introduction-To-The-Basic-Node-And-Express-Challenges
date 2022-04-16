@@ -5,6 +5,15 @@ var apath_assests = __dirname + "/public";
 function func(req, res) {
   res.sendFile(apath_html);
 }
+function jsonapi(req, res) {
+  if (process.env.MESSAGE_STYLE="uppercase"){
+    res.json({"message": "HELLO jSON"});
+  }
+  else {
+      res.json({"message": "Hello json"});
+  }
+}
+app.get("/json", jsonapi);
 app.get("/", func);
 app.use("/public", express.static(apath_assests));
 module.exports = app;
