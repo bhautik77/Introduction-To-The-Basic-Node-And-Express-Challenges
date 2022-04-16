@@ -42,6 +42,10 @@ app.get("/name", function querypara(req, res) {
   res.json({ name: req.query.first + " " + req.query.last });
 });
 
+app.post("/name", function querypara2(req, res) {
+  res.json({ name: req.body.first + " " + req.body.last });
+});
+
 app.use("/public", express.static(apath_assests));
 app.get("/json", jsonapi);
 app.get("/", func);
