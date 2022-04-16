@@ -19,15 +19,29 @@ function jsonapi(req, res) {
     res.json({ message: "Hello json" });
   }
 }
+
 app.use(logger);
-app.get('/now', function mid(req, res, next){
-  req.time=new Date().toString();
-  next();
-}, function final(req, res) {
-  res.json({time: req.time});
-})
-app.get("/:word/echo", );
+
+app.get(
+  "/now",
+  function mid(req, res, next) {
+    req.time = new Date().toString();
+    next();
+  },
+  function final(req, res) {
+    res.json({ time: req.time });
+  }
+);
+
+app.get("/:word/echo", function ech(req, res) {
+  res.json({ echo: req.params.word });
+});
+
+app.get("/name", function querypara(req, res) {
+  res.json({ name: req.query.first + " " + req.query.last });
+});
+
+app.use("/public", express.static(apath_assests));
 app.get("/json", jsonapi);
 app.get("/", func);
-app.use("/public", express.static(apath_assests));
 module.exports = app;
