@@ -19,8 +19,15 @@ function jsonapi(req, res) {
     res.json({ message: "Hello json" });
   }
 }
+app.use(logger);
+app.get('/now', function mid(req, res, next){
+  req.time=new Date().toString();
+  next();
+}, function final(req, res) {
+  res.json({time: req.time});
+})
+app.get("/:word/echo", );
 app.get("/json", jsonapi);
-app.use("/", logger);
 app.get("/", func);
 app.use("/public", express.static(apath_assests));
 module.exports = app;
