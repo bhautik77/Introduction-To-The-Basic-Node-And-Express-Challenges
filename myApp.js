@@ -1,44 +1,10 @@
-var express = require('express');
+var express = require("express");
 var app = express();
-console.log("Hello World");
-func (req, res) {
-  res.send('Response String');
+var apath_html = __dirname + "/views/index.html";
+function func(req, res) {
+  res.sendFile(apath_html);
 }
-app.get("/",func) 
+app.get("/", func);
+app.use("/public",middlewareFunction).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- module.exports = app;
+module.exports = app;
