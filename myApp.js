@@ -1,4 +1,5 @@
 var express = require("express");
+var bodyParser = require("body-parser");
 var app = express();
 var apath_html = __dirname + "/views/index.html";
 var apath_assests = __dirname + "/public";
@@ -20,7 +21,7 @@ function jsonapi(req, res) {
   }
 }
 
-app.use(logger);
+app.use(logger, bodyParser.urlencoded({extended: false}));
 
 app.get(
   "/now",
