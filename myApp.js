@@ -6,8 +6,8 @@ function func(req, res) {
   res.sendFile(apath_html);
 }
 function jsonapi(req, res) {
-  if (process.env.MESSAGE_STYLE="uppercase"){
-    res.json({"message": "HELLO jSON"});
+  if (process.env.MESSAGE_STYLE=="uppercase"){
+    res.json({"message": "HELLO JSON"});
   }
   else {
       res.json({"message": "Hello json"});
